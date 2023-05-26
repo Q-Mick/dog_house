@@ -9,8 +9,9 @@ import { setHTML } from "../utils/Writer.js"
 
 function _drawPost(){
   const post = AppState.posts
+  
   let template = ""
-  post.forEach(p => template += p.template)
+  post.forEach(p => template += p.postTemplate)
   setHTML('dog-posts', template)
 
 }
@@ -23,6 +24,9 @@ export class PostController {
     AppState.on('posts',_drawPost)
   }
 
+  getPostForm(){
+    setHTML('modal-guts', Post.postForm())
+  }
   async getPosts(){
    try {
     
@@ -34,25 +38,27 @@ export class PostController {
   }
 
 
-  // async setActive(postId){
-  //   try {
-  //     await postsService.setActive(postId)
-      
-  //   } catch (error) {
-  //     Pop.error(error)
-  //   }
-  // }
 
-  // async createPost(){
-  //   try {
-  //     window.event?.preventDefault()
-  //     const form = event?.target
-  //     const formData = getFormData(form)
-  //     await postsService.createPost(formData)
+
+  async setActive(postId){
+    try {
+      await postsService.setActive(postId)
       
-  //   } catch (error) {
-  //     Pop.error(error)
-  //   }
-  // }
+    } catch (error) {
+      Pop.error(error)
+    }
+  }
+
+  async createPost(){
+    try {
+      window.event?.preventDefault()
+      const form = event?.target
+      const formData = getFormData(form)
+      await postsService.createPost(formData)
+      
+    } catch (error) {
+      Pop.error(error)
+    }
+  }
 
 }

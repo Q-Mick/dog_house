@@ -37,14 +37,15 @@
       outline-offset: -3px;
     }
   </style>
-  <body class="debug">
+  <body class="">
     <!-- SECTION -->
     <header>
       <nav class="navbar navbar-dark navbar-expand bg-dark text-light px-2">
         <a class="navbar-brand" href="#">
           <!-- <img src="" height="45" alt=""  loading="lazy"> -->
           <span class="mb-3"
-            ><i class="m-0 mdi mdi-bone fs-4"> </i>The Dog House</span
+            ><img  class="logo" src="https://media.istockphoto.com/id/516461357/photo/funny-pug-dog-in-the-dog-house.jpg?b=1&s=170667a&w=0&k=20&c=G7DI-P5hKF7aOrYs8xAiJNHyo-XlBqzKbNQW0F6Z5X8=">
+            The Dog House</span
           >
         </a>
         <button
@@ -63,7 +64,9 @@
             <!-- NAVLINKS -->
             <a href="#/post" class="nav-link">Post</a>
           </div>
-          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#postModal">Add Post</button>
+          <img
+          src="assets/img/dogbone.gif"
+           class="img-fluid dog-bone" data-bs-toggle="modal" data-bs-target="#postModal" onclick="app.PostController.getPostForm()"></img>
         </div>
         <div
           class="flex-grow-1 justify-content-end align-items-center d-flex"
@@ -74,11 +77,15 @@
 
     <!-- SECTION -->
     <main>
-   
+      
+     
 
       <section id="router-view"></section>
-    </main>
 
+
+    </main>
+<div class="modal fade" id="postModal" tabindex="-1" aria-labelledby="exampleModella" aria-hidden="true">
+  <div class="modal-dialog" id="modal-guts">
     <!-- SECTION -->
     <footer class="bg-dark text-light"></footer>
 

@@ -13,8 +13,20 @@
 	border: 0.05rem solid;
 }
 
-.dog-img{
+.dog-image{
   border-radius: 0.6rem;
   border-top: 10px;
-  height: 11rem
+  height: 11rem;
+  width: 11rem;
+  object-fit: cover;
+}
+.logo{
+  height:80px;
+  width:100px;
+  border-radius: 50px;
+}
+
+.dog-bone{
+  height:80px;
+  width:100px;
 }
