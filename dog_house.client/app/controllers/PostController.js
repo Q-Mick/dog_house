@@ -6,7 +6,11 @@ import { getFormData } from "../utils/FormHandler.js"
 import { Pop } from "../utils/Pop.js"
 import { setHTML } from "../utils/Writer.js"
 
+function _drawActive(){
 
+  // const active = AppState.activePost
+  setHTML('active-puppy',  Post.activeTemplate())
+}
 function _drawPost(){
   const post = AppState.posts
   
@@ -22,6 +26,7 @@ export class PostController {
     this.getPosts()
     AppState.on('account', _drawPost)
     AppState.on('posts',_drawPost)
+    AppState.on('activePost',_drawActive)
   }
 
   getPostForm(){

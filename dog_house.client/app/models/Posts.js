@@ -1,3 +1,5 @@
+import { AppState } from "../AppState.js"
+
 export class Post{
   constructor(data){
     this.name = data.name
@@ -6,14 +8,14 @@ export class Post{
     this.size = data.size
     this.creatorId = data.creatorId
     this.imageURL = data.imageURL
-    this.postId = data.postId
+    this.id = data.id
     this.description = data.description
     
   }
   get postTemplate(){
     return /*html*/`
     <div class="col-4 p-2">
-        <div class="m-1 dog-card" onclick="app.PostController.setActive('${this.postId}')"> 
+        <div class="m-1 dog-card" onclick="app.PostController.setActive('${this.id}')"> 
           <img
             class="dog-image rounded-top"
             src=${this.imageURL}
@@ -31,22 +33,22 @@ export class Post{
           </div>
         </div>
       </div>
-    
+
     `
   }
 
-  get activeTemplate(){
+  static activeTemplate(){
     return /*html*/`
     <div class="row">
     <div class="col-3">
-      <img class="img-fluid" src="${this.imageURL}" alt="">
+      <img class="img-fluid" src="${AppState.activePost.imageURL}" alt="">
     </div>
     <div class="col-9">
-      <p class="mx-2">${this.name}</p>
-      <p class="mx-2">${this.breed}</p>
-      <p class="mx-2">${this.age}</p>
-      <p class="mx-2">${this.size}</p>
-      <p class="mx-2">${this.description}</p>
+      <p class="mx-2">${AppState.activePost.name}</p>
+      <p class="mx-2">${AppState.activePost.breed}</p>
+      <p class="mx-2">${AppState.activePost.age}</p>
+      <p class="mx-2">${AppState.activePost.size}</p>
+      <p class="mx-2">${AppState.activePost.description}</p>
     </div>
   </div>
    <div class="row">
