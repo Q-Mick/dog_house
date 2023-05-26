@@ -4,13 +4,13 @@ const Schema = mongoose.Schema
 
 export const LikeSchema = new Schema({
 postId: { type: Schema.Types.ObjectId, required: true, ref:'Post'},
-commentId: { type: Schema.Types.ObjectId, required: true, ref:'Comment'},
-likeId: { type: Schema.Types.ObjectId, required: true},
+accountId: { type: Schema.Types.ObjectId, required: true, ref: 'Account'}
+
 
 })
 
-LikeSchema.virtual('post', {
-  localField: 'postId',
+LikeSchema.virtual('Liker', {
+  localField: 'accountId',
   foreignField: '_id',
   justOne: true,
   ref: 'Account'

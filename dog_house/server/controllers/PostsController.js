@@ -1,15 +1,18 @@
 import { commentsService } from "../services/CommentsService.js";
+import { likeService } from "../services/LikeService.js";
 import { postsService } from "../services/PostsService.js"
 import BaseController from "../utils/BaseController.js";
 import { Auth0Provider } from "@bcwdev/auth0provider";
+
 export class PostsController extends BaseController {
 constructor() {
   super('api/posts')
   this.router
   .get('', this.getPosts)
   // FIXME --v this is not right 
-  .get('/:creatorId', this.getPostById)
+  .get('/:postId', this.getPostById)
   .get('/:postId/comments' , this.getCommentsByPostId)
+  .get('/:postId/likes', this.getLikesByPostId)
   // add in the .use to get userInfo attached to post (plus do extra obv)
   .use(Auth0Provider.getAuthorizedUserInfo)
   .post('', this.createPost)
@@ -56,4 +59,15 @@ async getPostById(req, res, next){
     next(error)
   }
 }
+
+async getLikesByPostId(req, res, next) {
+    try {
+      const postId = req.params.postId
+      const likes = await likeService.getLikesByPostId(postId)
+      res.send(likes)
+    } catch (error) {
+      next(error)
+    }
+  }
+
 }
