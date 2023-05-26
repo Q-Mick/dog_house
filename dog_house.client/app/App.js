@@ -15,6 +15,7 @@ class App {
   }
 
   handleRouteChange() {
+  
     AppState.page = location.hash
     const currentRoute = router.find(r => r.path == location.hash)
     if (!currentRoute) {
