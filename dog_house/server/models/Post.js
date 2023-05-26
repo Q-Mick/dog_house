@@ -8,7 +8,7 @@ const Schema = mongoose.Schema
       age: {type: Number, required: true},
       size: {type: String, required: true, Enum: ['small', 'medium','large'] },
       imageURL: {type: String, required: false },
-      desription: { type: String, required: true},
+      description: { type: String, required: true},
       creatorId: {type: Schema.Types.ObjectId, required: true, ref: 'Account' }
   },
   { timestamps: true, toJSON: {virtuals: true}}
