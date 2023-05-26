@@ -35,6 +35,30 @@
     "editor.codeActionsOnSave": {
       "source.fixAll": true
     },
-    "liveServer.settings.multiRootWorkspaceName": "client"
+    "workbench.colorCustomizations": {
+      "activityBar.activeBackground": "#47ef8d",
+      "activityBar.background": "#47ef8d",
+      "activityBar.foreground": "#15202b",
+      "activityBar.inactiveForeground": "#15202b99",
+      "activityBarBadge.background": "#a46cf2",
+      "activityBarBadge.foreground": "#15202b",
+      "commandCenter.border": "#15202b99",
+      "panel.border": "#47ef8d",
+      "sash.hoverBorder": "#47ef8d",
+      "sideBar.border": "#47ef8d",
+      "statusBar.background": "#18eb70",
+      "statusBar.border": "#18eb70",
+      "statusBar.foreground": "#15202b",
+      "statusBarItem.hoverBackground": "#11bf59",
+      "statusBarItem.remoteBackground": "#18eb70",
+      "statusBarItem.remoteForeground": "#15202b",
+      "tab.activeBorder": "#47ef8d",
+      "titleBar.activeBackground": "#18eb70",
+      "titleBar.activeForeground": "#15202b",
+      "titleBar.border": "#18eb70",
+      "titleBar.inactiveBackground": "#18eb7099",
+      "titleBar.inactiveForeground": "#15202b99"
+    },
+    "peacock.color": "#18eb70"
   }
 }
