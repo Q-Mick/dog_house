@@ -3,9 +3,9 @@ export const PostView = /*html*/`
 <!-- posts -->
 <div class="row">
   <div class="col-7 p-3">
-    <div class="row">
+    <div class="row" id="dog-posts">
       <div class="col-4 p-2">
-        <div class="m-1 dog-card">
+        <div class="m-1 dog-card"> 
           <img
             class="dog-image img-fluid rounded-top"
             src="https://static.onecms.io/wp-content/uploads/sites/47/2021/06/21/black-and-white-dog-hero-2000.jpg"
