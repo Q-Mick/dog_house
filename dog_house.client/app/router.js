@@ -4,6 +4,7 @@ import { ValuesController } from "./controllers/ValuesController.js";
 import { PostView } from "./views/PostView.js";
 import { HomeView } from "./views/HomeView.js";
 
+
 /**
  * Register your routes for the application here
  * @type {Route[]}
@@ -19,6 +20,7 @@ export const router = [
     controller: PostController,
     view: PostView
   }
+  
 ]
 
 
