@@ -52,8 +52,8 @@ async getPosts( req, res, next) {
 
 async getPostById(req, res, next){
   try {
-    const creatorId = req.params.creatorId
-    const post = await postsService.getPostByID(creatorId)
+    const postId = req.params.postId
+    const post = await postsService.getPostByID(postId)
     return res.send(post)
   } catch (error) {
     next(error)

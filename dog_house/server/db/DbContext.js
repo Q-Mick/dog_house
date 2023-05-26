@@ -13,7 +13,7 @@ class DbContext {
 
   Comments = mongoose.model('Comment', CommentSchema)
 
-  Like = mongoose.model('like', LikeSchema)
+  Likes = mongoose.model('Like', LikeSchema)
 }
 
 export const dbContext = new DbContext()
