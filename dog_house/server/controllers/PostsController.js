@@ -1,3 +1,4 @@
+import { commentsService } from "../services/CommentsService.js";
 import { postsService } from "../services/PostsService.js"
 import BaseController from "../utils/BaseController.js";
 import { Auth0Provider } from "@bcwdev/auth0provider";
@@ -6,11 +7,23 @@ constructor() {
   super('api/posts')
   this.router
   .get('', this.getPosts)
+  // FIXME --v this is not right 
   .get('/:creatorId', this.getPostById)
+  .get('/:postId/comments' , this.getCommentsByPostId)
   // add in the .use to get userInfo attached to post (plus do extra obv)
   .use(Auth0Provider.getAuthorizedUserInfo)
   .post('', this.createPost)
 }
+ async getCommentsByPostId(req, res, next) {
+try {
+  const postId = req.params.postId
+  const comments = await commentsService.getCommentsPostById(postId)
+  return res.send(comments)
+  
+} catch (error) {
+  next(error)
+}
+  }
 
 async createPost(req,res,next) {
   try {
