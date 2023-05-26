@@ -1,1 +1,20 @@
 /* BASIC STYLES HERE */
+
+
+.dog-card{
+
+  display: inline-block;
+	color: black;
+	
+	text-decoration: none;
+	/* background: hsl(187 75% 64%); */
+	border-radius: 0.6rem;
+	font-weight: 700;
+	border: 0.05rem solid;
+}
+
+.dog-img{
+  border-radius: 0.6rem;
+  border-top: 10px;
+  height: 11rem
+}
