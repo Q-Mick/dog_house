@@ -1,0 +1,13 @@
+
+  {
+    "name": "dog_house",
+    "version": "1.0.0",
+    "scripts": {
+      "build": "npm run setup:server",
+      "setup:app": "npm run setup:server && npm run setup:client",
+      "setup:client": "cd dog_house.client && npm i",
+      "setup:server": "cd dog_house && npm i",
+      "start": "node dog_house/index.js"
+    }
+  }
+  
