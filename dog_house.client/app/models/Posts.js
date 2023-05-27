@@ -15,7 +15,7 @@ export class Post{
   get postTemplate(){
     return /*html*/`
     <div class="col-4 p-2">
-        <div class="m-1 dog-card" onclick="app.PostController.setActive('${this.id}')"> 
+        <div class="m-1 dog-card bg-secondary elevation-5" onclick="app.PostController.setActive('${this.id}')"> 
           <img
             class="dog-image rounded-top"
             src=${this.imageURL}
@@ -39,34 +39,34 @@ export class Post{
 
   static activeTemplate(){
     return /*html*/`
-    <div class="row">
-    <div class="col-3">
-      <img class="img-fluid" src="${AppState.activePost.imageURL}" alt="">
+    <div class="row p-2 border-4 border border-dark elevation-5 m-3 bg-secondary">
+    <div class="col-8 ">
+      <img class="border border-info border-3 activeDog img-fluid" src="${AppState.activePost.imageURL}" alt="">
     </div>
-    <div class="col-9">
-      <p class="mx-2">${AppState.activePost.name}</p>
-      <p class="mx-2">${AppState.activePost.breed}</p>
-      <p class="mx-2">${AppState.activePost.age}</p>
-      <p class="mx-2">${AppState.activePost.size}</p>
-      <p class="mx-2">${AppState.activePost.description}</p>
+    <div class="col">
+      <p class="mx-2 my-3"><span class="fw-bold">Name: </span>${AppState.activePost.name}</p>
+      <p class="mx-2 my-3"> <span class="fw-bold">Breed:</span> ${AppState.activePost.breed}</p>
+      <p class="mx-2 my-3"><span class="fw-bold">Age:</span> ${AppState.activePost.age}</p>
+      <p class="mx-2 my-3"><span class="fw-bold">Size:</span> ${AppState.activePost.size}</p>
+      <p class="mx-2 my-3"><span class="fw-bold">Description:</span> ${AppState.activePost.description}</p>
     </div>
-  </div>
+  
    <div class="row">
-   <div class="col-12" id="comments">
-   <p class="mx-2">comments</p>
-   <div class="border-1">
-   <p class="mx-2">this is a comment</p>
+   <div class="col-12  border-3 border border-info m-2 rounded " id="comments">
+   <p class="mx-2"><em class="fs-3 mdi mdi-account-box">comments:</em></p>
+   <div class="">
+   <p class="elevation-4 mx-2 bg-light border border-3 border-dark mdi mdi-account-box p-3"> this is a comment</p>
    </div>
    </div>
    <div class="row">
    <div class="col-12 d-flex justify-content-between">
-   <p class="mx-2">add Comment<i class="mdi mdi-comment">
-   </i></p>
-   <p class="mx-2">favorite<i class="mdi mdi-star">
-   </i></p>
+   <button class="mx-2">add Comment<i class="mdi mdi-comment">
+   </i></button>
+   <button class="mx-2">favorite<i class="mdi mdi-star">
+   </i></button>
    </div>
    </div>
-
+   </div>
   </section>
   `
   

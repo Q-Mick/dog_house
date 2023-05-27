@@ -5,7 +5,7 @@
 
   display: inline-block;
 	color: black;
-	
+	width: 90%;
 	text-decoration: none;
 	/* background: hsl(187 75% 64%); */
 	border-radius: 0.6rem;
@@ -14,10 +14,11 @@
 }
 
 .dog-image{
+  min-height:20rem;
   border-radius: 0.6rem;
   border-top: 10px;
-  height: 11rem;
-  width: 11rem;
+  height: 100%;
+  width: 100%;
   object-fit: cover;
 }
 .logo{
@@ -29,4 +30,21 @@
 .dog-bone{
   height:80px;
   width:100px;
+}
+
+.activeDog{
+  height: 100;
+  width: 100%;
+  margin-top:10px;
+  object-fit: cover;
+  border-radius:10px;
+  /* background-color: crimson; */
+}
+
+.com{
+ background-color: brown;
+}
+.scroller{
+  overflow-y: scroll;
+  max-height: 88vh
 }

@@ -6,7 +6,7 @@ import { api } from "./AxiosService.js"
 class PostsService{
  
   setActive(postId) {
-    debugger
+    
    const post = AppState.posts.find(p => p.id == postId)
    AppState.activePost = post; 
    console.log("this is the active in the appstate ",AppState.activePost);
