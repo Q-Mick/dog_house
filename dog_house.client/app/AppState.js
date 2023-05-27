@@ -17,6 +17,8 @@ class ObservableAppState extends EventEmitter {
 
   activePost = null;
 
+  favorite = [];
+
   // Used to load initial data
   init() {
 
