@@ -19,16 +19,25 @@ function _drawPost(){
   setHTML('dog-posts', template)
 
 }
+
 // Public
 export class PostController {
   constructor() {
+    
     console.log('The Post page has loaded')
     this.getPosts()
+    this.showCreatePost()
     AppState.on('account', _drawPost)
     AppState.on('posts',_drawPost)
     AppState.on('activePost',_drawActive)
   }
 
+  showCreatePost(){
+    console.log('showing create button');
+    let createElem = document.getElementById('create-post')
+    // @ts-ignore
+    createElem.style.display = "block"
+  }
   getPostForm(){
     setHTML('modal-guts', Post.postForm())
   }
@@ -55,6 +64,10 @@ export class PostController {
   }
 
   async createPost(){
+    if (!AppState.account){
+      Pop.toast("Must be logged in")
+    return
+    }
     try {
       window.event?.preventDefault()
       const form = event?.target

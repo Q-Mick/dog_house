@@ -1,7 +1,7 @@
 import { AppState } from "../AppState.js"
 
-export class Post{
-  constructor(data){
+export class Post {
+  constructor(data) {
     this.name = data.name
     this.breed = data.breed
     this.age = data.age
@@ -10,10 +10,12 @@ export class Post{
     this.imageURL = data.imageURL
     this.id = data.id
     this.description = data.description
-    
+    this.likeCount = data.likeCount
+    this.liker = data.postLiker
+    // this.posterName = data.postLiker.name
   }
-  get postTemplate(){
-    return /*html*/`
+  get postTemplate() {
+    return /*html*/ `
     <div class="col-4 p-2">
         <div class="m-1 dog-card bg-secondary elevation-5" onclick="app.PostController.setActive('${this.id}')"> 
           <img
@@ -27,8 +29,8 @@ export class Post{
           </div>
           <div class="d-flex justify-content-between">
             <i class="p-1 mdi mdi-star fs-2" id="favorite"></i>
-            <p class="p-1 mt-2 fs-5" id="likes">
-              <i class="mdi mdi-thumb-up"></i>5
+            <p onclick="app.LikeController.becomeLiker('${this.id}')" class="p-1 mt-2 fs-5" id="likes">
+              <i class="mdi mdi-thumb-up"></i>${this.likeCount}
             </p>
           </div>
         </div>
@@ -37,22 +39,40 @@ export class Post{
     `
   }
 
-  static activeTemplate(){
-    return /*html*/`
+  static activeTemplate() {
+    return /*html*/ `
     <div class="row p-2 border-4 border border-dark elevation-5 m-3 bg-secondary">
     <div class="col-8 ">
-      <img class="border border-info border-3 activeDog img-fluid" src="${AppState.activePost.imageURL}" alt="">
+      <img class="border border-info border-3 activeDog img-fluid" src="${
+        // @ts-ignore
+        AppState.activePost.imageURL
+      }" alt="">
     </div>
     <div class="col">
-      <p class="mx-2 my-3"><span class="fw-bold">Name: </span>${AppState.activePost.name}</p>
-      <p class="mx-2 my-3"> <span class="fw-bold">Breed:</span> ${AppState.activePost.breed}</p>
-      <p class="mx-2 my-3"><span class="fw-bold">Age:</span> ${AppState.activePost.age}</p>
-      <p class="mx-2 my-3"><span class="fw-bold">Size:</span> ${AppState.activePost.size}</p>
-      <p class="mx-2 my-3"><span class="fw-bold">Description:</span> ${AppState.activePost.description}</p>
+      <p class="mx-2 my-3"><span class="fw-bold">Name: </span>${
+        // @ts-ignore
+        AppState.activePost.name
+      }</p>
+      <p class="mx-2 my-3"> <span class="fw-bold">Breed:</span> ${
+        // @ts-ignore
+        AppState.activePost.breed
+      }</p>
+      <p class="mx-2 my-3"><span class="fw-bold">Age:</span> ${
+        // @ts-ignore
+        AppState.activePost.age
+      }</p>
+      <p class="mx-2 my-3"><span class="fw-bold">Size:</span> ${
+        // @ts-ignore
+        AppState.activePost.size
+      }</p>
+      <p class="mx-2 my-3"><span class="fw-bold">Description:</span> ${
+        // @ts-ignore
+        AppState.activePost.description
+      }</p>
     </div>
   
    <div class="row">
-   <div class="col-12  border-3 border border-info m-2 rounded " id="comments">
+   <div class="col-12 border-3 border border-info m-2 rounded " id="comments">
    <p class="mx-2"><em class="fs-3 mdi mdi-account-box">comments:</em></p>
    <div class="">
    <p class="elevation-4 mx-2 bg-light border border-3 border-dark mdi mdi-account-box p-3"> this is a comment</p>
@@ -69,50 +89,62 @@ export class Post{
    </div>
   </section>
   `
-  
   }
- static postForm(){
-  return /*html*/`
+  static postForm() {
+    return /*html*/ `
   
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">List a New Dog</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Create your Post!</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <form class="row" onsubmit="app.PostController.createPost()">
         <div class="modal-body">
         <label for="name">Dog Name</label>
-          <div class="form-floating mb-3 col-12">
-            <input type="text" class="form-control" id="name" name="name" placeholder="Dog Name">
-          </div>
+        <div class="input-group input-group-sm mb-3 col-6">
+        <span class="input-group-text" id="inputGroup-sizing-sm">Name</span>
+        <input type="text" class="form-control" name="name" id="name" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        </div>
+    
           <label for="Breed">Dog Breed</label>
-          <div class="form-floating mb-3 col-12">
-            <input required type="text" class="form-control" id="breed" name="breed" placeholder="dog breed">
+          <div class="input-group input-group-sm mb-3 col-6">
+          <span class="input-group-text" id="inputGroup-sizing-sm">Breed</span>
+          <input type="text" class="form-control" name="breed" id="breed" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
           </div>
-          <label for="age">Age</label>
-          <div class="form-floating mb-3 col-12">
-            <input required type="number" class="form-control" id="age" name="age" placeholder="age">
+
+         <label for="Breed">Age</label>
+          <div class="input-group input-group-sm mb-3">
+          <span class="input-group-text" id="inputGroup-sizing-sm">Age</span>
+          <input type="text" class="form-control" name="age" id="age" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
           </div>
-          <label for="imageURL">Image URL</label>
-          <div class="form-floating mb-3 col-12">
-            <input required type="url" class="form-control" id="imageURL" name="imageURL" placeholder="imageURL">
-          </div>
-          <label for="description">description</label>
-          <div class="form-floating mb-3 col-12">
-            <textarea required type="text" class="form-control" id="description" name="description" placeholder="description">
-            </textarea>
-          </div>
-          <div class="col-12">
-            <select name="size" class="form-select" id="size">
-              <option value="small">Small</option>
-              <option value="medium">Medium</option>
-              <option value="large">Large</option>
-            </select>
-          </div>
+
+          <div class="mb-3">
+  <label for="basic-url" class="form-label">Image URL</label>
+  <div class="input-group">
+    <span class="input-group-text" id="basic-addon3">Image URL</span>
+    <input required type="text" class="form-control" id="imageURL" name="imageURL" aria-describedby="basic-addon3 basic-addon4">
+  </div>
+  <div class="form-text" id="basic-addon4">Paste the link to your image</div>
+</div>
+
+<label for="description">Size</label>
+<div class="col-12">
+  <select name="size" class="form-select" id="size">
+    <option selected>Open this to select your pups size</option>
+    <option value="small">Small</option>
+    <option value="medium">Medium</option>
+    <option value="large">Large</option>
+  </select>
+</div>
+<label for="description">Description</label>
+<div class="input-group">
+
+<textarea class="form-control" aria-label="" id="description" name="description"></textarea>
+</div>
           <div>
             <div class="modal-footer">
               <button type="button" class="btn btn-primary" data-bs-dismiss="modal">CLOSE</button>
-              <button type="submit" class="btn btn-success">SUBMIT</button>
+              <button type="submit" class="btn btn-success" data-bs-dismiss="modal">SUBMIT</button>
             </div>
       </form>
     </div>
@@ -120,5 +152,5 @@ export class Post{
     </div>
   
   `
- }
+  }
 }

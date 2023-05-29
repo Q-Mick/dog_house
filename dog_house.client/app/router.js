@@ -3,6 +3,7 @@ import { HomeController } from "./controllers/HomeController.js";
 import { ValuesController } from "./controllers/ValuesController.js";
 import { PostView } from "./views/PostView.js";
 import { HomeView } from "./views/HomeView.js";
+import { LikeController } from "./controllers/LikeController.js";
 
 
 /**
@@ -17,7 +18,7 @@ export const router = [
   },
   {
     path: '#/post',
-    controller: PostController,
+    controller: [PostController, LikeController],
     view: PostView
   }
   

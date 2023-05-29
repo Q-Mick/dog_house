@@ -4,9 +4,10 @@ import { likeService } from "../services/LikeService.js";
 
 export class LikeController extends BaseController{
 constructor(){
-super('api/likes')
+super('api/liker')
 this.router
 .use(Auth0Provider.getAuthorizedUserInfo)
+// like post
 .post('',this.likePost)
 
 }

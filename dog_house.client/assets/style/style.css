@@ -6,6 +6,7 @@
   display: inline-block;
 	color: black;
 	width: 90%;
+  max-height: 26rem;
 	text-decoration: none;
 	/* background: hsl(187 75% 64%); */
 	border-radius: 0.6rem;

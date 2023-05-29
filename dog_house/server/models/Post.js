@@ -21,7 +21,7 @@ const Schema = mongoose.Schema
     ref: 'Account'
   })
 
-  PostSchema.virtual('likedCount', {
+  PostSchema.virtual('likeCount', {
     localField: '_id',
     foreignField: "postId",
     ref : 'Like',

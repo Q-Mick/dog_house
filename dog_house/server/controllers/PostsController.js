@@ -12,7 +12,7 @@ constructor() {
   // FIXME --v this is not right 
   .get('/:postId', this.getPostById)
   .get('/:postId/comments' , this.getCommentsByPostId)
-  .get('/:postId/likes', this.getLikesByPostId)
+  .get('/:postId/liker', this.getLikesByPostId)
   // add in the .use to get userInfo attached to post (plus do extra obv)
   .use(Auth0Provider.getAuthorizedUserInfo)
   .post('', this.createPost)
@@ -44,6 +44,8 @@ async getPosts( req, res, next) {
   try {
     const query = req.query
     const posts = await postsService.getPosts(query)
+    
+    console.log(res.data);
     return res.send(posts)
   } catch (error) {
     next(error)
