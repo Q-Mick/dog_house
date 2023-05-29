@@ -16,4 +16,4 @@ LikeSchema.virtual('liker', {
   ref: 'Account'
 })
 // prevent more than one like
-LikeSchema.index({ postId: 1, commentId: 1}, {unique: true})
+LikeSchema.index({ postId: 1, accountId: 1}, {unique: true})

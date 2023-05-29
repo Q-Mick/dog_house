@@ -11,6 +11,7 @@ class LikeService{
     // NOTE this updates the UI to now match the state of our data in the database
     const post = AppState.posts.find(p => p.id == postId)
     post.likeCount++
+    AppState.emit('likers')
     AppState.emit('posts')
 }
 async getLikersActivePost() {

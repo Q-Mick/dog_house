@@ -41,38 +41,38 @@ export class Post {
 
   static activeTemplate() {
     return /*html*/ `
-    <div class="row p-2 border-4 border border-dark elevation-5 m-3 bg-secondary">
-    <div class="col-8 ">
-      <img class="border border-info border-3 activeDog img-fluid" src="${
+    <div class="row p-1 border-4 border border-dark elevation-5 m-0 bg-secondary">
+    <div class="col-7">
+      <img class="border border-info border-3 activeDog " src="${
         // @ts-ignore
         AppState.activePost.imageURL
       }" alt="">
     </div>
-    <div class="col">
-      <p class="mx-2 my-3"><span class="fw-bold">Name: </span>${
+    <div class="col-5 m-0">
+      <p class="my-1 mx-1"><span class="fw-bold">Name: </span>${
         // @ts-ignore
         AppState.activePost.name
       }</p>
-      <p class="mx-2 my-3"> <span class="fw-bold">Breed:</span> ${
+      <p class="my-1 mx-1"> <span class="fw-bold">Breed:</span> ${
         // @ts-ignore
         AppState.activePost.breed
       }</p>
-      <p class="mx-2 my-3"><span class="fw-bold">Age:</span> ${
+      <p class="my-1 mx-1"><span class="fw-bold">Age:</span> ${
         // @ts-ignore
         AppState.activePost.age
       }</p>
-      <p class="mx-2 my-3"><span class="fw-bold">Size:</span> ${
+      <p class="my-1 mx-1"><span class="fw-bold">Size:</span> ${
         // @ts-ignore
         AppState.activePost.size
       }</p>
-      <p class="mx-2 my-3"><span class="fw-bold">Description:</span> ${
+      <p class="my-1 mx-1"><span class="fw-bold">Description:</span> ${
         // @ts-ignore
         AppState.activePost.description
       }</p>
     </div>
   
-   <div class="row">
-   <div class="col-12 border-3 border border-info m-2 rounded " id="comments">
+   <div class="row m-1">
+   <div class=" p-1 col-12 border-3 border border-info m-0 p-1 rounded " id="comments">
    <p class="mx-2"><em class="fs-3 mdi mdi-account-box">comments:</em></p>
    <div class="">
    <p class="elevation-4 mx-2 bg-light border border-3 border-dark mdi mdi-account-box p-3"> this is a comment</p>
@@ -80,9 +80,9 @@ export class Post {
    </div>
    <div class="row">
    <div class="col-12 d-flex justify-content-between">
-   <button class="mx-2">add Comment<i class="mdi mdi-comment">
+   <button class="mx-2 my-1">add Comment<i class="mdi mdi-comment">
    </i></button>
-   <button class="mx-2">favorite<i class="mdi mdi-star">
+   <button class="mx-2 my-1">favorite<i class="mdi mdi-star">
    </i></button>
    </div>
    </div>

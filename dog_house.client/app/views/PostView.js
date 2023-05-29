@@ -6,6 +6,6 @@ export const PostView = /*html*/ `
     <div class="row" id="dog-posts">
     </div>
 </div>
-  <div class="col-5" id="active-puppy">
+  <div class="col-5 p-2" id="active-puppy">
 </div>
 `

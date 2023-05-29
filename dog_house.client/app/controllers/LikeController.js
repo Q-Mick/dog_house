@@ -6,7 +6,7 @@ function _drawLikers() {
   debugger
   let likers = AppState.likers
  console.log('updating likes');
-  setText('spotters', likers)
+  setText('likers', likers)
 }
 export class LikeController{
   constructor(){

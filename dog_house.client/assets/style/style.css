@@ -19,6 +19,7 @@
   border-radius: 0.6rem;
   border-top: 10px;
   height: 100%;
+  max-height: 5rem;
   width: 100%;
   object-fit: cover;
 }
@@ -34,9 +35,11 @@
 }
 
 .activeDog{
-  height: 100;
+  min-height:23rem;
+  height: 100%;
   width: 100%;
-  margin-top:10px;
+  /* margin-top:10px;
+  margin-bottom:10px; */
   object-fit: cover;
   border-radius:10px;
   /* background-color: crimson; */
