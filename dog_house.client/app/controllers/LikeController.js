@@ -3,10 +3,10 @@ import { Pop } from "../utils/Pop.js"
 import { likeService } from "../services/LikeService.js"
 import { setText } from "../utils/Writer.js"
 function _drawLikers() {
-  debugger
+  
   let likers = AppState.likers
  console.log('updating likes');
-  setText('likers', likers)
+  setText('likes', likers)
 }
 export class LikeController{
   constructor(){

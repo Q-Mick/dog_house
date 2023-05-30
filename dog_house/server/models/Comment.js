@@ -28,4 +28,4 @@ CommentSchema.virtual('commentor', {
  },
  )
 
-//  CommentSchema.index ({ commenterId: 1, creatorId: 1}, {unique: true })
+ CommentSchema.index ({  creatorId: 1}, {unique: true })
