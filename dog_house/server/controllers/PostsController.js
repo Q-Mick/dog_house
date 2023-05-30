@@ -3,7 +3,7 @@ import { likeService } from "../services/LikeService.js";
 import { postsService } from "../services/PostsService.js"
 import BaseController from "../utils/BaseController.js";
 import { Auth0Provider } from "@bcwdev/auth0provider";
-
+import { logger } from "../utils/Logger.js";
 export class PostsController extends BaseController {
 constructor() {
   super('api/posts')
@@ -12,10 +12,23 @@ constructor() {
   // FIXME --v this is not right 
   .get('/:postId', this.getPostById)
   .get('/:postId/comments' , this.getCommentsByPostId)
-  .get('/:postId/likes', this.getLikesByPostId)
+  .get('/:postId/liker', this.getLikesByPostId)
   // add in the .use to get userInfo attached to post (plus do extra obv)
   .use(Auth0Provider.getAuthorizedUserInfo)
+  .delete('/:postId', this.deletePost)
   .post('', this.createPost)
+}
+
+async deletePost(req, res, next){
+  try {
+    const postId = req.params.postId
+    const userId = req.userInfo.Id
+    logger.log(postId, userId)
+    const deletedPost =  await postsService.deletePost(postId, userId)
+    res.send(`[DELETED POST]`,deletedPost)
+  } catch (error) {
+    next(error)
+  }
 }
  async getCommentsByPostId(req, res, next) {
 try {
@@ -44,6 +57,8 @@ async getPosts( req, res, next) {
   try {
     const query = req.query
     const posts = await postsService.getPosts(query)
+    
+    console.log(res.data);
     return res.send(posts)
   } catch (error) {
     next(error)

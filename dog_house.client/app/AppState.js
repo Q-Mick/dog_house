@@ -13,6 +13,8 @@ class ObservableAppState extends EventEmitter {
   values = loadState('values', [Value])
   socketData = []
 
+  /** @type {import('./models/Account.js').Account[]} */
+  likers = []
   posts = [];
 
   activePost = null;

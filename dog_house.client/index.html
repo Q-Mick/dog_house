@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link
       rel="icon"
-      href="https://bcw.blob.core.windows.net/public/img/9977764104160066"
+      href="assets/img/doghouse.gif"
     />
     <link
       rel="stylesheet"
@@ -43,8 +43,8 @@
       <nav class="navbar navbar-dark navbar-expand bg-dark text-light px-2 sticky-top">
         <a class="navbar-brand" href="#">
           <!-- <img src="" height="45" alt=""  loading="lazy"> -->
-          <span class="mb-3"
-            ><img  class="logo" src="https://media.istockphoto.com/id/516461357/photo/funny-pug-dog-in-the-dog-house.jpg?b=1&s=170667a&w=0&k=20&c=G7DI-P5hKF7aOrYs8xAiJNHyo-XlBqzKbNQW0F6Z5X8=">
+          <span class="mb-3 fs-2"
+            ><img class="logo" src="https://media.istockphoto.com/id/516461357/photo/funny-pug-dog-in-the-dog-house.jpg?b=1&s=170667a&w=0&k=20&c=G7DI-P5hKF7aOrYs8xAiJNHyo-XlBqzKbNQW0F6Z5X8=">
             The Dog House</span
           >
         </a>
@@ -62,11 +62,12 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
             <!-- NAVLINKS -->
-            <a href="#/post" class="nav-link">Post</a>
+            
+            <a href="#/post" class="nav-link text-white fs-4 py-3" style="text-decoration: none;"><img src="assets/img/doghouse.gif" class="img-fluid pb-3" style="height: 3rem;"> View Posts</a>
           </div>
-          <img
+          <P class="px-3"style="display: none;" id="create-post"><img
           src="assets/img/dogbone.gif"
-           class="img-fluid dog-bone" data-bs-toggle="modal" data-bs-target="#postModal" onclick="app.PostController.getPostForm()"></img>
+           class="img-fluid dog-bone" data-bs-toggle="modal" data-bs-target="#postModal" onclick="app.PostController.getPostForm()"></img>Create post</P>
         </div>
         <div
           class="flex-grow-1 justify-content-end align-items-center d-flex"
